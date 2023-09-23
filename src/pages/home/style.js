@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    padding: 2rem;
-
+    background-color: #141414;
+    padding: 10px;
     h1 {
         text-align: center;
         margin: 4rem 0;
@@ -15,6 +15,7 @@ export const MovieList = styled.ul`
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     column-gap: 3rem;
     row-gap: 4rem;
+    padding: 0;
 `;
 
 export const Movie = styled.li`
@@ -23,7 +24,7 @@ export const Movie = styled.li`
     align-items: center;
     justify-content: space-evenly;
     img {
-        width: 180px;
+        width: 200px;
         border-radius: 1rem;
         margin-bottom: 2rem;
     }

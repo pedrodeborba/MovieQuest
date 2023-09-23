@@ -1,16 +1,21 @@
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 30px;
-}
+
 nav h1 {
   text-align: center;
 }
 
 .container {
   text-align: center;
+}
+
+.navbar{
+  width: 80vw;
+  margin: 0 10vw;
+}
+
+.navbar-nav{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .link_button {
@@ -33,6 +38,13 @@ nav h1 {
   width: 20%;
   margin: 0 40%;
 }
+
+#carouselExampleIndicators{
+  width: 80vw;
+  margin-left: 10vw;
+  margin-top: 10px;
+}
+
 
 .movie-desc {
   text-align: justify;
