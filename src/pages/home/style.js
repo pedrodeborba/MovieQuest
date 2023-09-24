@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    background-color: #141414;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(56,1,153,1) 38%, rgba(28,0,96,1) 100%);
     padding: 10px;
-    h1 {
-        text-align: center;
-        margin: 4rem 0;
-    }
+    padding-top: 70px;
+`;
+
+export const ContainerMovie = styled.div`
+    height: 100vh;
+    position: relative;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(56,1,153,1) 38%, rgba(28,0,96,1) 100%);
+    padding: 10px;
 `;
 
 export const MovieList = styled.ul`
@@ -15,7 +21,7 @@ export const MovieList = styled.ul`
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     column-gap: 3rem;
     row-gap: 4rem;
-    padding: 0;
+    padding: 50px;
 `;
 
 export const Movie = styled.li`
@@ -41,15 +47,4 @@ export const Movie = styled.li`
     }
 `;
 
-export const Btn = styled.button`
-    margin-top: 5px;
-    padding: 0.7rem 3rem;
-    border: none;
-    border-radius: 15px;
-    color: #212121;
-    background-color: #ffffff;
-    font-weight: 1000;
-    font-size: 12 px;
-    cursor: pointer;
-    transition: all 250ms;
-`;
+

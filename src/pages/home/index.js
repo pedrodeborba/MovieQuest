@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Movie, MovieList, Btn } from "./style";
+import { Container, Movie, MovieList} from "./style";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -51,10 +51,10 @@ function Home() {
 
   return (
     <Container>
-      <nav className="navbar navbar-expand-lg bg-transparent">
+      <nav className="navbar navbar-expand-lg fixed-top">
         <div className="container-fluid">
           <a className="navbar-brand text-white" href="#">
-            Navbar
+            MovieQuest
           </a>
           <button
             className="navbar-toggler"
@@ -145,13 +145,15 @@ function Home() {
               <input
                 className="form-control me-2"
                 type="search"
-                placeholder="Search"
+                placeholder="Busca"
                 aria-label="Search"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-              <button className="btn text-white border-white" type="submit">
-                Search
+              <button className="btn text-white" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
               </button>
             </form>
           </div>
@@ -180,16 +182,25 @@ function Home() {
             data-bs-slide-to="2"
             aria-label="Slide 3"
           ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+          ></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src={process.env.PUBLIC_URL + "/img/johnwick4.png"} class="d-block w-100"/>
           </div>
           <div class="carousel-item">
-            <img src={process.env.PUBLIC_URL + "/img/creed3.png"} class="d-block w-100"/>
+            <img src={process.env.PUBLIC_URL + "/img/adao-negro.jpg"} class="d-block w-100"/>
           </div>
           <div class="carousel-item">
-            <img src={process.env.PUBLIC_URL + "/img/johnwick4.png"} class="d-block w-100"/>
+            <img src={process.env.PUBLIC_URL + "/img/transformers.jpg"} class="d-block w-100"/>
+          </div>
+          <div class="carousel-item">
+            <img src={process.env.PUBLIC_URL + "/img/megan.jpg"} class="d-block w-100"/>
           </div>
         </div>
         <button
@@ -198,8 +209,9 @@ function Home() {
           data-bs-target="#carouselExampleIndicators"
           data-bs-slide="prev"
         >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff" class="bi bi-caret-left-square-fill" viewBox="0 0 16 16">
+            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm10.5 10V4a.5.5 0 0 0-.832-.374l-4.5 4a.5.5 0 0 0 0 .748l4.5 4A.5.5 0 0 0 10.5 12z"/>
+        </svg>
         </button>
         <button
           class="carousel-control-next"
@@ -207,38 +219,29 @@ function Home() {
           data-bs-target="#carouselExampleIndicators"
           data-bs-slide="next"
         >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff" class="bi bi-caret-right-square-fill" viewBox="0 0 16 16">
+            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.5 10a.5.5 0 0 0 .832.374l4.5-4a.5.5 0 0 0 0-.748l-4.5-4A.5.5 0 0 0 5.5 4v8z"/>
+        </svg>
         </button>
       </div>
-
-      <h1>Movies</h1>
       <MovieList>
         {movies.map((movie) => {
           // Verificando se a URL da imagem está definida antes de renderizar
           if (movie.poster_path) {
             return (
               <Movie key={movie.id}>
-                <img
-                  src={`${imagePath}${movie.poster_path}`}
-                  alt={movie.title}
-                />
-                <span>{movie.title}</span>
-
                 <Link to={`/${movie.id}`}>
-                  <Btn>Detalhes</Btn>
+                  <img
+                    src={`${imagePath}${movie.poster_path}`}
+                    alt={movie.title}
+                  />
                 </Link>
               </Movie>
             );
           } else {
-            // Tratando a situação em que a URL da imagem está ausente ou nula
             return (
               <Movie key={movie.id}>
                 <span>{movie.title}</span>
-
-                <Link to={`/${movie.id}`}>
-                  <Btn>Detalhes</Btn>
-                </Link>
               </Movie>
             );
           }
