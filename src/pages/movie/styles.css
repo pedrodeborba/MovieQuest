@@ -35,6 +35,16 @@ input.form-control::placeholder{
   border-radius: 20px; 
   overflow: hidden;
 }
+/* .card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  margin-left: 20px;
+  padding-top: 30px;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(56,1,153,1) 38%, rgba(28,0,96,1) 100%);
+} */
 .link_button {
   position: absolute;
   top: 0;
@@ -87,4 +97,3 @@ input.form-control::placeholder{
   background: rgb(0,0,0);
   background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(56,1,153,1) 38%, rgba(28,0,96,1) 100%);
 }
-

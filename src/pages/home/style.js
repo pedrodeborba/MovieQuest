@@ -22,6 +22,7 @@ export const MovieList = styled.ul`
     column-gap: 3rem;
     row-gap: 4rem;
     padding: 50px;
+    margin-left: 10px;
 `;
 
 export const Movie = styled.li`
