@@ -17,7 +17,7 @@ function Home() {
   const [initialMovies, setInitialMovies] = useState([]);
   const [genres, setGenres] = useState([]);
 
-  // Efeitos colaterais (useEffect)
+  // useEffect
   useEffect(() => {
     fetchPopularMovies();
     fetchGenres();
@@ -105,7 +105,7 @@ function Home() {
     <Container>
       <nav className="navbar navbar-expand-lg fixed-top">
         <div className="container-fluid">
-          <a className="navbar-brand text-white" href="#">
+          <a className="navbar-brand text-white" href="/">
             MovieQuest
           </a>
           <button
@@ -137,7 +137,7 @@ function Home() {
                 <a
                   className="nav-link active text-white"
                   aria-current="page"
-                  href="#inicio"
+                  href="/"
                 >
                   Início
                 </a>
@@ -226,28 +226,36 @@ function Home() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img
-              src={process.env.PUBLIC_URL + "/img/johnwick4.png"}
-              className="d-block w-100"
-            />
+            <Link to="/569094">
+              <img
+                src={process.env.PUBLIC_URL + "/img/homemaranha.png"}
+                className="d-block w-100"
+              />
+            </Link>
           </div>
           <div className="carousel-item">
-            <img
-              src={process.env.PUBLIC_URL + "/img/adao-negro.jpg"}
-              className="d-block w-100"
-            />
+            <Link to="/603692">
+              <img
+                src={process.env.PUBLIC_URL + "/img/johnwick4.png"}
+                className="d-block w-100"
+              />
+            </Link>
           </div>
           <div className="carousel-item">
-            <img
-              src={process.env.PUBLIC_URL + "/img/transformers.jpg"}
-              className="d-block w-100"
-            />
+            <Link to="/667538">
+              <img
+                src={process.env.PUBLIC_URL + "/img/transformers.jpg"}
+                className="d-block w-100"
+              />
+            </Link>
           </div>
           <div className="carousel-item">
-            <img
-              src={process.env.PUBLIC_URL + "/img/megan.jpg"}
-              className="d-block w-100"
-            />
+            <Link to="/436270">
+              <img
+                src={process.env.PUBLIC_URL + "/img/adao-negro.jpg"}
+                className="d-block w-100"
+              />
+            </Link>
           </div>
         </div>
         <button
@@ -285,7 +293,7 @@ function Home() {
           </svg>
         </button>
       </div>
-      <h2 style={{color: "#fff"}}>Mais vistos</h2>
+      <h2 style={{color: "#fff", marginTop: "20px"}}>Mais vistos</h2>
       <MovieList>
         {movies.map((movie) => {
           if (movie.poster_path) {
