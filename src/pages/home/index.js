@@ -47,60 +47,36 @@ function Home() {
   };
 
   // Função para buscar filmes por pesquisa
-  const handleSearch = () => {
+  const handleSearch = async () => {
     if (searchTerm.trim() === "") {
       setMovies(initialMovies);
       return;
     }
-
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=pt-BR&query=${searchTerm}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.results.length > 0) {
-          setMovies(data.results);
-          document.querySelector(".carousel").style.display = "none";
-        } else {
-          setMovies([]);
-          alert("Nenhum filme encontrado com esse termo de pesquisa.");
-        }
-      })
-      .catch((error) => {
-        console.error("Erro ao buscar filmes:", error);
-      });
-  };
-
-  // Função para renderizar lista de filmes por gênero
-  const renderMovieSections = () => {
-    return genres.map((genre) => {
-      const moviesInGenre = movies.filter((movie) =>
-        movie.genre_ids.includes(genre.id)
+  
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=pt-BR&query=${searchTerm}`
       );
-
-      if (moviesInGenre.length > 0) {
-        return (
-          <div key={genre.id}>
-            <h2 style={{ color: "#fff" }}>{genre.name}</h2>
-            <MovieList>
-              {moviesInGenre.map((movie) => (
-                <Movie key={movie.id}>
-                  <Link to={`/${movie.id}`}>
-                    <img
-                      src={`${IMAGE_PATH}${movie.poster_path}`}
-                      alt={movie.title}
-                    />
-                  </Link>
-                </Movie>
-              ))}
-            </MovieList>
-          </div>
-        );
-      } else {
-        return null;
+      
+      if (!response.ok) {
+        throw new Error("Erro ao buscar filmes.");
       }
-    });
+  
+      const data = await response.json();
+  
+      if (data.results.length > 0) {
+        setMovies(data.results);
+        document.querySelector(".carousel").style.display = "none";
+      } else {
+        alert("Nenhum filme encontrado com esse termo de pesquisa.");
+        // Redirecionando o usuário para a página inicial ("/")
+        window.location.href = "/";
+      }
+    } catch (error) {
+      console.error("Erro ao buscar filmes:", error);
+    }
   };
+  
   return (
     <Container>
       <nav className="navbar navbar-expand-lg fixed-top">
