@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+nav h1 {
+    text-align: center;
+  }
+  .container {
+    text-align: center;
+  }
+  .navbar{
+    width: 80vw;
+    margin: 0 10vw;
+    border-radius: 20px; 
+    margin-top: 10px;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(56,1,153,1) 38%, rgba(28,0,96,1) 100%);
+  }
+  .navbar-nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  input.form-control{
+    background-color: transparent;
+    color: #fff;
+  }
+  input.form-control::placeholder{
+    color: #fff;
+  }
+  #carouselExampleIndicators {
+    border-radius: 20px; 
+    overflow: hidden;
+  }
+  .link_button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 15px;
+    color: #212121;
+    font-weight: 1000;
+    font-size: 12 px;
+    cursor: pointer;
+    transition: all 250ms;
+  }
+  .link_button:hover{
+    transform: scale(1.1);
+  }
+  #carouselExampleIndicators{
+    width: 80vw;
+    margin-left: 10vw;
+    margin-top: 10px;
+  }

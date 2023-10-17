@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container, Movie, MovieList } from "./style";
+import './styles.css'
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
